@@ -1,0 +1,10 @@
+#--------------------------------------------------------------------
+#--------------------------------------------------------------------
+Executable = "lcg_athena.sh";
+StdOutput = "lcg_athena.out";
+StdError = "lcg_athena.err";
+InputSandbox = { "lcg_athena.sh", "lcg_athena_joboptions.py"}; 
+OutputSandbox = { "lcg_athena.out","lcg_athena.err" };
+Requirements = Member("VO-atlas-production-12.0.6", other.GlueHostApplicationSoftwareRunTimeEnvironment, 
+	other.CEId=="ccgridli03.in2p3.fr:2119/jobmanager-bqs-A");
+#--------------------------------------------------------------------

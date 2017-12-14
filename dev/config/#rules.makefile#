@@ -1,0 +1,154 @@
+###
+### Pattern Rules
+###
+
+#-------------------------------------------------------------------
+# ROOT specific rules
+#-------------------------------------------------------------------
+# CPPPARSER = -gccxml
+# CPPPARSER = -reflex
+CPPPARSER = 
+
+# New include directory structure and ROOT5.0 Reflex to generate dictionaries
+#$(DICTSRCS): $(SRCDIR)/%Dict.cxx: %.hxx
+#	(cd $(PROJINCDIR); \
+#	rootcint $(CPPPARSER) -f ../$(SRCDIR)/$(@F) -c $(INCFLAGS) -I.. ../$<)
+
+#$(DICTSRCSLINKDEF): $(SRCDIR)/%Dict.cxx: $(PROJINCDIR)/%.hxx $(PROJINCDIR)/%LinkDef.hxx
+#	(cd $(PROJINCDIR); \
+#	rootcint $(CPPPARSER) -f ../$(SRCDIR)/$(@F) -c -I.. $(INCFLAGS) \
+#	../$< ../$(PROJINCDIR)/$*LinkDef.hxx )
+
+# ROOT 5.0 Reflex dictionary generation
+$(DICTOBJS): %Dict.$(ObjSuf): $(SRCDIR)/%Dict.cxx
+	$(CXX) -fPIC $(CXXFLAGS) -c $< -o $(OBJDIR)/$(@F)
+
+$(ROOTDICTSRCS):$(SRCDIR)/%Dict.cxx: $(PROJINCDIR)/%LinkDef.hxx $(ROOTDICTHDRS)
+	(cd $(PROJINCDIR); \
+	rootcint $(CPPPARSER) -f ../$(SRCDIR)/$(@F) -c -I.. $(INCFLAGS) \
+	$(ROOTDICTHDRS) ../$(PROJINCDIR)/$*LinkDef.hxx )
+
+#-------------------------------------------------------------------
+# General rules
+#-------------------------------------------------------------------
+# Some locks to create directories
+libdir=$(LIBDIR)/lock
+exedir=$(EXEDIR)/lock
+objdir=$(OBJDIR)/lock
+
+#-------------------------------------------------------------------
+# Making object files
+#-------------------------------------------------------------------
+$(C_LIB_OBJS): %.$(ObjSuf): %.c $(objdir)
+	$(CC) -fPIC $(CFLAGS) -c $< -o $(OBJDIR)/$(@F)
+$(RPC_O_FILES): %.o: $(SRCDIR)/%.c $(objdir)
+	$(CC) -fPIC $(CFLAGS) -c $< -o $(OBJDIR)/$(@F)
+
+#$(CPP_MAIN_OBJS): %.$(ObjSuf): %.cxx $(objdir)
+#	$(CXX) $(CXXFLAGS) -c $< -o $(OBJDIR)/$(@F)
+#$(CPP_LIB_OBJS): %.$(ObjSuf): %.cxx $(objdir)
+#	$(CXX) -fPIC $(CXXFLAGS) -c $< -o $(OBJDIR)/$(@F)
+%.$(ObjSuf): %.cxx $(objdir)
+	$(CXX) -fPIC $(CXXFLAGS) -c $< -o $(OBJDIR)/$(@F)
+%.$(ObjSuf): %.cpp $(objdir)
+	$(CXX) -fPIC $(CXXFLAGS) -c $< -o $(OBJDIR)/$(@F)
+%.$(ObjSuf): %.C $(objdir)
+	$(CXX) -fPIC $(CXXFLAGS) -c $< -o $(OBJDIR)/$(@F)
+%.$(ObjSuf): %.cc $(objdir)
+	$(CXX) -fPIC $(CXXFLAGS) -c $< -o $(OBJDIR)/$(@F)
+
+%.$(ObjSuf): %.fpp $(objdir)
+	$(F77) -fPIC $(FFLAGS) -x f77-cpp-input -c $< -o $(OBJDIR)/$(@F)
+%.$(ObjSuf): %.F $(objdir)
+	$(F77) -fPIC $(FFLAGS) -c $< -o $(OBJDIR)/$(@F)
+%.$(ObjSuf): %.f $(objdir)
+	$(F77) -fPIC $(FFLAGS) -c $< -o $(OBJDIR)/$(@F)
+
+# SWIG .i -> .cxx -> .o
+$(SWIG_CPP): %.cxx: $(SWIG_I) $(SWIG_HEADERS)
+	$(SWIG) -python -c++ -external-runtime $(TK_INSTALL_DIR)/include/swigpy.hxx
+	$(SWIG) -python -c++ -o $@ $< 
+$(SWIG_OBJS): %.$(ObjSuf): %.cxx
+	$(CXX) -fPIC $(CXXFLAGS) $< -c -g -o $@
+$(SWIG_LIB): $(SWIG_OBJS) install_lib
+	$(LD) $(SOFLAGS) $(SWIG_OBJS) $(THIS_LIB2) $(LIBS) -o $@
+
+#-------------------------------------------------------------------
+# Making libraries
+#-------------------------------------------------------------------
+$(TARGET_SHARED_LIB): %.so: $(LIB_OBJS) $(libdir)
+	$(LD) $(SOFLAGS) $(LIB_OBJS2) $(LIBS) -o $(LIBDIR)/$(@F)
+
+$(TARGET_STATIC_LIB): %.a: $(LIB_OBJS) $(libdir) $(SWIG_OBJS)
+	ar r $(LIBDIR)/$(@F) $(LIB_OBJS2) $(LIBS)
+	ranlib $(LIBDIR)/$(@F)
+
+#-------------------------------------------------------------------
+# Making executables
+#-------------------------------------------------------------------
+THIS_LIB2 := -L$(LIBDIR) -L$(TK_LIBDIR) $(patsubst lib%.so,-l%, $(THIS_LIB))
+$(C_EXES): %.exe: %.o $(TARGET_SHARED_LIBS) install_lib $(exedir)
+	$(CC) $(LDFLAGS) -o $(EXEDIR)/$(@F) $(OBJDIR)/$(<F) \
+		 $(THIS_LIB2) $(LIBS)
+$(CPP_EXES): %.exe: %.o $(TARGET_SHARED_LIBS) $(exedir) #install_lib
+	$(CXX) $(LDFLAGS) -o $(EXEDIR)/$(@F) $(OBJDIR)/$(<F) \
+		 $(THIS_LIB2) $(LIBS)
+$(F_EXES): %.exe: %.o $(TARGET_SHARED_LIBS) install_lib $(exedir)
+	$(F77) $(FFLAGS) -o $(EXEDIR)/$(@F) $(OBJDIR)/$(<F) \
+		 $(THIS_LIB2) $(LIBS)
+
+$(JAVA_CLASSES): %.class: $(libdir) %.java
+	javac -classpath $(LIBDIR) -sourcepath $(SRCDIR) $< -d $(LIBDIR)
+
+#$(RMI_STUBS): %Impl$$1.class: %Impl.class
+#	rmic -d $(LIBDIR) $(LIBDIR)/$<
+
+.PHONY: install_lib install_exe install_headers install_scripts
+
+$(libdir): 
+	mkdir -p $(LIBDIR); touch $@
+$(objdir): 
+	mkdir -p $(OBJDIR); touch $@
+$(exedir): 
+	mkdir -p $(EXEDIR); touch $@
+
+
+libfiles = $(wildcard $(LIBDIR)/lib*.so)
+/install_lib: $(TARGET_SHARED_LIB) $(TARGET_STATIC_LIB)
+ifneq ($(libfiles),)
+	@echo "Installing library files to $(TK_LIBDIR) ..."
+	@cp $(LIBDIR)/lib*.so $(TK_LIBDIR)
+else
+	@echo "No libraries to install"
+endif
+
+exefiles = $(wildcard $(EXEDIR)/*.exe)
+install_exe: $(TARGET_EXES)
+ifneq ($(exefiles),)
+	@echo "Installing executable files to $(TK_BINDIR) ..."
+	@cp $(exefiles) $(TK_BINDIR)
+else
+	@echo "No executables to install"
+endif
+
+headerfiles := $(wildcard $(PROJINCDIR)/*.*[^~])
+install_headers: install_lib # install_exe
+ifneq ($(headerfiles),)
+	@echo "Installing header files to $(TK_INCDIR) ..."
+	@mkdir -p $(TK_INCDIR)/$(PROJINCDIR)
+	@cp $(headerfiles) $(TK_INCDIR)/$(PROJINCDIR)/
+else
+	@echo "No header files to install"
+endif
+
+install_scripts:
+	@cp $(SCRIPT_FILES) $(TK_BINDIR)/
+
+install_python_modules:
+	@mkdir -p $(TK_PYTHONDIR)
+ifneq ($(PYTHON_MODULES),)
+	@cp $(PYTHON_MODULES) $(TK_PYTHONDIR)/
+endif
+
+# install: all install_lib install_exe install_headers
+

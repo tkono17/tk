@@ -1,0 +1,60 @@
+#-----------------------------------------------------------------
+# K Job: Job description file
+# ---------------------------
+# KEY: VALUE
+# KEY = KJOBD-([SIT][A]*)-(\w+)
+#-----------------------------------------------------------------
+KJOBD-S-TYPE:         NewJobType
+KJOBD-I-NUMBER:       23
+KJOBD-S-NAME:         Hallo!
+KJOBD-S-WORKDIR:      /space/tkohno/work
+KJOBD-S-OUTPUTDIR:    /space/tkohno/work/output
+KJOBD-S-SCRIPT:       jobScript.sh
+KJOBD-SA-INPUTFILES:  jobOptions.py
+KJOBD-SA-OUTPUTFILES: hello.
+
+KJOBD-S-SUBMIT_QUEUE:   X
+KJOBD-S-SUBMIT_HOST:    lxbatch.cern.ch
+KJOBD-S-SUBMIT_OPTIONS: -I -A -hallo
+
+KJOBD-S-STATUS:  TO_BE_SUBMITTED
+#####   Status (state diagram)   ######
+# TO_BE_SUBMITTED -(submit:SUCCESS)-> SUBMITTED
+#                 -(submit:ERROR)->   SUBMIT_FAILED
+# SUBMITTED       -(list:PENDING)->   PENDING
+#                 -(list:RUNNING)->   RUNNING
+#                 -(list:DONE)->      DONE
+#  SUBMIT_FAILED  -(Email alert)->    SUBMIT_FAILED
+# PENDING         -(list:PENDING)->   PENDING
+#                 -(list:RUNNING)->   RUNNING
+#                 -(list:DONE)->      DONE
+# RUNNING         -(list:RUNNING)->   RUNNING
+#                 -(list:DONE)->      DONE
+# DONE            -(get:SUCCESS)->    GOT
+#                 -(get:ERROR)->      GET_FAILED
+# GET             -(do nothing)->     GOT
+#  GET_FAILED     -(Email alert)->    GET_FAILED
+# (PURGED)
+# COMPLETED
+#-----------------------------------------------------------------
+# Operations
+# submit: Output=SUCCESS,ERROR
+# list  : Output=NONE,PENDING,RUNNING,DONE
+# get   : SUCCESS,ERROR
+#-----------------------------------------------------------------
+
+#---------------------------
+# Information added by kjob
+#---------------------------
+KJOBD-I-ID: 
+KJOBD-D-SUBMIT_TIME: 
+KJOBD-S-SUBMIT_OUTPUT:
+
+KJOBD-D-GET_TIME: 
+KJBOD-S-GET_OUTPUT: 
+
+KJOBD-D-KILL_TIME: 
+
+KJOBD-D-PURGE_TIME: 
+
+

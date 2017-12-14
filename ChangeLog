@@ -1,0 +1,143 @@
+2012-07-30  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Add workdir to local_cern
+
+2012-06-23  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Organize ROOT utils in different files
+	* Add -s option to taskmgr.py to set the status manually
+
+2012-05-31  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Add more ROOT utils
+
+2012-03-05  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Commit grid scripts
+
+2012-02-22  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Add grid_chk_missingDS.sh
+
+2012-02-02  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Update ath_ami.sh as some AMI commands are restricted
+
+2012-01-29  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Add scripts to work with RAW skimming and pbook
+
+2011-07-27  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Add atl_lumipsNtuple.sh
+
+2011-07-13  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Do not run mycron.py if there's no tty
+
+2011-07-05  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* mycron.py: By default just create a script to execute
+	* Need to improve the book-keeping and more flexible configuration
+	* e.g. run X every Y hours, run X if not ran for Y hours, etc.
+	* Modify the format of the script slightly
+
+2011-07-04  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* scripts/mycron.py: A script to launth scheduled commands
+
+2011-06-23  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Update the taskmgr.py script
+	* runRootMacro.py: A script to execute ROOT macros from a command line
+	  Puts the arguments appropriately to the C++ function
+
+2011-06-08  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* root/atlas: new directory for ATLAS macros
+
+2011-06-07  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Re-organize the login scripts by separating out local settings
+	* Move the tk_svnroot repository location to cern
+
+2011-02-27  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Increase robustness of the ajm module
+
+2011-02-25  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Add more scripts
+
+2010-10-04  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Update atl_rq.sh with --egamma-G option
+
+2010-09-09  Takanori KONO  <Takanori.Kohno@cern.ch>
+	* update ath_trf.sh to work for both MTPT and RAWtoESD by option
+
+2010-09-07  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* scripts/ath_trf.sh: added. To run Reco_trf.py locally
+
+2010-09-06  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Add share/ directory to save some templates
+
+2010-07-29  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* rename trigCond.py to ath_trigCond.py
+
+2010-07-13  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Fixing problem with copyFilesFromGrid.py
+
+2010-07-12  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Updating scripts
+	* Add scripts/trigCond.py
+
+2010-07-07  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Add panda_submit2.sh -m option to merge multiple datasets
+	* Add atl_grl_ds.py -d <output> to dump the GRL in a simple text
+
+2010-07-06  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Update dev/config to include HepMC, CLHEP, boost
+	
+2010-04-17  Takanori KONO  <Takanori.Kohno@cern.ch>
+	* dev/scripts/ath_atn_test.sh: New script
+	* Update various scripts
+
+2010-03-02  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Add svnWorkTool.sh
+
+2010-02-22  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Adding script and xsl file for my web site development
+	(dev/config/tksite.xsl, dev/scripts/mk_tkweb.sh)
+
+2010-01-11  Takanori KONO  <Takanori.Kohno@cern.ch>
+	* Update scripts to prepare jobs for real data
+	  (atl_rq.sh -> atl_grl_ds.py -> atl_prepare_grid_job.sh)
+	  Uses AtlRunQuery.py, insert_in_tag.py and panda_submit.sh
+	* Adding options in atl_grl_ds.py
+
+2009-12-18  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Add scripts to prepare jobs for data analysis
+
+2009-12-17  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* atl_rq.sh: add --gr2009 option to select good runs in 2009 (LAr, 
+	Pixel, SCT, TRT and solenoid on, Ebeam>449 GeV)
+
+2009-12-04  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Adding two new ROOT macros (PlotMaker, chk_tree)
+
+2009-12-13  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* dev/config/basic.makefile: install_exe to depend on local library 
+	instead of installed library
+
+2009-12-10  Takanori KONO  <Takanori.Kohno@cern.ch>
+	* dev/scripts/ath_chk_nightly.sh: New script to check tags in nightlies
+
+2009-11-27  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Update dev/config/*.makefile to be compatible on NAF
+
+2009-11-17  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* panda_submit.sh: fix the bug in the -n option
+
+2009-11-17  Takanori KONO  <Takanori.Kohno@cern.ch>
+	* Setup script for the ROOT environment
+
+2009-11-13  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* panda_submit.sh: Cleanup the options
+
+2009-11-12  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Update scripts/ath_make_all.sh (options for make/clean/reset etc.)
+
+2009-11-06  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* root/mystyle.C: zcol colors
+
+2009-10-20  Takanori Kono  <Takanori.Kohno@cern.ch>
+	* Adding atlas/ and one more script to synchronize development at 
+	various sites
+	* Add ROOT environment
+	* Add install.sh, setup.sh and mktar.sh
+	
+
