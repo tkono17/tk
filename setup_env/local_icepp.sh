@@ -7,8 +7,12 @@ export TK_CRON_CONF=$HOME/work/cron.conf
 export workdir=/gpfs/fs2001/tkohno
 export datadir=/gpfs/fs2001/tkohno/data
 
-export PATH=$workdir/local/bin:$PATH
-export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
+export TK_SWDIR=${workdir}/sw
+export PATH=${TK_SWDIR}/bin:$PATH
+export LD_LIBRARY_PATH=${TK_SWDIR}/bin:$LD_LIBRARY_PATH
+
+#export PATH=$workdir/local/bin:$PATH
+#export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
 
 DIRSTACKSIZE=20
 setopt autopushd

@@ -27,12 +27,16 @@ export TK_CRON_CONF=$HOME/work/cron.conf
 
 export workdir=/afs/cern.ch/work/t/tkohno
 export datadir=/afs/cern.ch/work/t/tkohno/data
-export PATH=$workdir/local/bin:$PATH
-export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
+export TK_SWDIR=${workdir}/sw
+export PATH=${TK_SWDIR}/bin:$PATH
+export LD_LIBRARY_PATH=${TK_SWDIR}/bin:$LD_LIBRARY_PATH
 
-export PATH=$workdir/local/bin:$PATH
-export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$workdir/local/lib/python2.6/site-packages:$PYTHONPATH
+#export PATH=$workdir/local/bin:$PATH
+#export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
+
+#export PATH=$workdir/local/bin:$PATH
+#export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
+#export PYTHONPATH=$workdir/local/lib/python2.6/site-packages:$PYTHONPATH
 
 
 ##### ATLAS settings
