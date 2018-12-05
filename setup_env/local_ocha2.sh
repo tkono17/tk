@@ -40,8 +40,5 @@ export CLASSPATH=/opt/scala-2.11.6/lib:$CLASSPATH
 export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
 # ROOT
-#export ROOTSYS=/nfs/opt/root-v5-34-07
-#export ROOTSYS=/nfs/opt/root-v5-34-32
-#a=$(pwd); cd $ROOTSYS; source ./bin/thisroot.sh; cd $a
 
 alias setup_vivado='source /opt/Xilinx/Vivado/2017.3/settings64.sh'
