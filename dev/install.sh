@@ -87,6 +87,7 @@ scripts=(\
     scripts/svnWorkTool.sh
     python/mk_sub_grl.py
     scripts/correct_d3pdreader_header.py
+    scripts/ath_cmake.sh
 
     # GRID utilities
     scripts/panda_submit.sh
@@ -194,7 +195,7 @@ done
 for a in $python_modules; do
     dest=$TK_SWDIR/bin/`basename $a`
     src=$TK_ROOT/python/`basename $a`
-    if [[ ! -e $dest ]]; then 
+    if [[ ! -L $dest ]]; then 
 	ln -s $src $dest
     fi
 done
