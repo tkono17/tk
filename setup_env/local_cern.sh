@@ -30,6 +30,7 @@ export datadir=/afs/cern.ch/work/t/tkohno/data
 export TK_SWDIR=${workdir}/sw
 export PATH=${TK_SWDIR}/bin:$PATH
 export LD_LIBRARY_PATH=${TK_SWDIR}/bin:$LD_LIBRARY_PATH
+alias cds="cd $workdir"
 
 export PATH=$workdir/local/bin:$PATH
 #export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
