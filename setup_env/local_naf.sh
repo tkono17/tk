@@ -23,6 +23,7 @@ ini ROOT53200
 #kinit tkohno@DESY.DE
 
 export TK_ROOT=$HOME/work/tk
+export TK_SWDIR=$HOME/sw
 export TK_CRON_CONF=$HOME/work/cron.conf
 
 export sonasdir=/scratch/hh/dust/naf/atlas/user/tkohno
