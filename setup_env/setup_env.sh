@@ -32,6 +32,9 @@ elif [[ $domain == "cern.ch" ]]; then
 elif [[ $domain == "icepp.jp" ]]; then
     source ${dir}/local_icepp.sh
     sync=yes
+elif [[ $domain == "kek.jp" ]]; then
+    source ${dir}/local_kek.sh
+    sync=yes
 elif [[ ${host[1,6]} == hpxpc5 ]]; then
     source ${dir}/local_ocha2.sh
     sync=yes

@@ -2,7 +2,6 @@
 # tk/local_icepp.sh
 #--------------------------------------------------------------------------
 export TK_ROOT=${HOME}/work/tk
-export TK_SWDIR=$HOME/sw
 export TK_CRON_CONF=$HOME/work/cron.conf
 
 export workdir=/gpfs/fs2001/tkohno
@@ -48,17 +47,26 @@ alias setup_grid='source /afs/icepp.jp/project/gd/LCG-share/current/etc/profile.
 #if [[ $? != 0 ]]; then
 #    localSetupROOT
 #fi
-alias setupFrontier='export FRONTIER_SERVER=$FRONTIER_SERVER"(proxyurl=http://conddb-px02.icepp.jp:3128)"'
+#alias setupFrontier='export FRONTIER_SERVER=$FRONTIER_SERVER"(proxyurl=http://conddb-px02.icepp.jp:3128)"'
 
 #export AtlasSetup=/afs/icepp.jp/atlasjp/software/releases/17.2.7/AtlasSetup
 
 #alias athena17.2.7.9='cd ${HOME}/athena/17.2.7.9; asetup AtlasProduction,17.2.7.9,here'
 #alias athena17.2.10.1='cd ${HOME}/athena/17.2.10.1; asetup AtlasProduction,17.2.10.1,here'
-alias athena20.0.0.1='cd ${workdir}/athena/20.0.0.1; asetup AtlasProduction,20.0.0.1,64,gcc48,here'
+#alias athena20.0.0.1='cd ${workdir}/athena/20.0.0.1; asetup AtlasProduction,20.0.0.1,64,gcc48,here'
 
 #alias setup_grid='source /afs/icepp.jp/project/gd/LCG-share/current/external/etc/profile.d/grid-env.sh'
 
 #alias setup_panda='source /afs/cern.ch/atlas/offline/external/GRID/DA/panda-client/latest/etc/panda/panda_setup.sh'
 #alias setup_dq2='source /afs/icepp.jp/atlasjp/offline/external/DQ2Clients/setup.sh'
+
+function setup_sentaurus() {
+    source /home/software/scripts/common.sh
+    source /home/software/scripts/vdec-license.sh
+    source /home/software/scripts/synopsys2016sp2.sh
+    export STDB=${HOME}/Sentaurus
+    mkdir -p ${STDB}
+}
+
 
 
