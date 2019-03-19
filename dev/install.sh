@@ -88,6 +88,7 @@ scripts=(\
     python/mk_sub_grl.py
     scripts/correct_d3pdreader_header.py
     scripts/ath_cmake.sh
+    scripts/atlasAnalysisCmake.sh
 
     # GRID utilities
     scripts/panda_submit.sh
