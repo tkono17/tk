@@ -40,6 +40,7 @@ scripts=(\
     scripts/genDatasetMap.py
     scripts/mycron.py
     scripts/make_usePackage.sh
+    scripts/mk_html_react.sh
 
     # LXBATCH tools
     scripts/lxbatch_sub.sh

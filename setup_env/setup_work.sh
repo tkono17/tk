@@ -7,6 +7,8 @@ export TKDEV_ROOT=$TK_ROOT/dev
 export PATH=$TK_ROOT/bin:$PATH
 export LD_LIBRARY_PATH=$TK_ROOT/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$TK_ROOT/python:$PYTHONPATH
+export PATH=$TK_SWDIR/bin:$PATH
+export LD_LIBRARY_PATH=$TK_SWDIR/lib:$LD_LIBRARY_PATH
 
 ##### ATLAS settings
 alias uuidgen='uuidgen | tr "[:lower:]" "[:upper:]"'
@@ -48,5 +50,4 @@ export _JAVA_OPTIONS="-Xms256m -Xmx1024m"
 
 # alias gridproxy='voms-proxy-init -voms atlas:/atlas/jp -valid 72:00:00'
 alias gridproxy='voms-proxy-init -voms atlas -valid 72:00:00'
-
-
+export ALRB_rootVersion="6.14.04-x86_64-slc6-gcc62-opt"
