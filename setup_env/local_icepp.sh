@@ -2,6 +2,7 @@
 # tk/local_icepp.sh
 #--------------------------------------------------------------------------
 export TK_ROOT=${HOME}/work/tk
+export TK_SWDIR=$HOME/sw
 export TK_CRON_CONF=$HOME/work/cron.conf
 
 export workdir=/gpfs/fs2001/tkohno

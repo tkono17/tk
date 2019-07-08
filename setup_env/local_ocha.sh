@@ -2,13 +2,13 @@
 # tk/local_ocha.sh
 #--------------------------------------------------------------------------
 export TK_ROOT=$HOME/work/tk
-export TK_SWDIR=$HOME/sw
 export TK_CRON_CONF=$HOME/work/cron.conf
 export PATH=${TK_SWDIR}/bin:$PATH
 export LD_LIBRARY_PATH=${TK_SWDIR}/bin:$LD_LIBRARY_PATH
 
-export workdir=/nfs/space1/tkohno/work
-alias cds='cd /nfs/space1/tkohno'
+export workdir=/nfs/space3/tkohno/work
+alias cds='cd /nfs/space3/tkohno'
+export TK_SWDIR=/nfs/space3/tkohno/sw
 
 export PATH=$workdir/local/bin:$PATH
 export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
@@ -43,6 +43,9 @@ export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
 # ROOT
 #export ROOTSYS=/nfs/opt/root-v5-34-07
-export ROOTSYS=/nfs/opt/root-v5-34-32
-a=$(pwd); cd $ROOTSYS; source ./bin/thisroot.sh; cd $a
+function setup_root5() {
+    export ROOTSYS=/nfs/opt/root-v5-34-32
+    a=$(pwd); cd $ROOTSYS; source ./bin/thisroot.sh; cd $a
+}
 
+alias setup_root6='source /cvmfs/sft.cern.ch/lcg/app/releases/ROOT/6.16.00/x86_64-centos7-gcc48-opt/bin/thisroot.sh'

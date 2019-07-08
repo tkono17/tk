@@ -2,6 +2,7 @@
 # tk/local_laptop.sh
 #--------------------------------------------------------------------------
 export TK_ROOT=$HOME/work/tk
+export TK_SWDIR=$HOME/sw
 export TK_CRON_CONF=$HOME/work/cron.conf
 
 export ROOTSYS=/opt/products/root-v5-34-09
