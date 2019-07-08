@@ -23,11 +23,13 @@ export OCHA_SVN=svn+ssh://hpx.phys.ocha.ac.jp/var/svn/repos
 export LPDEST=hpxprint2
 export PRINTER=${LPDEST}
 
-# Japanese input method
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-#ibus-daemon -d -x
+# TexLive 2019
+export MANPATH=/usr/local/texlive/2019/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/2019/texmf-dist/doc/info:$INFOPATH
+export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH
+
+# Node/npm
+alias setup_node='export PATH=/opt/node-v10.16.0-linux-x64/bin:$PATH'
 
 # Scala
 export PATH=/opt/scala-2.11.6/bin:$PATH
