@@ -12,4 +12,3 @@ cd $ROOTSYS; source ./bin/thisroot.sh; cd -
 
 #export tk_svnroot=svn+ssh://tkohno@lxplus.cern.ch/afs/cern.ch/user/t/tkohno/scratch0/svnroot/repos
 
-alias ise=/opt/products/Xilinx/14.6/ISE_DS/ISE/bin/lin/ise

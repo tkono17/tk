@@ -43,6 +43,9 @@ elif [[ $domain == "ocha.ac.jp" || ${host[1,3]} == hpx ]]; then
     sync=yes
 #elif [[ $domain == "" && $host == "TK-Vaio-VirtualBox" ]]; then
 elif [[ $domain == "" && $host == "tkohno-VirtualBox" ]]; then
+elif [[ ($domain == "" && $host == "tkohno-VirtualBox") 
+        || ($domain == "" && $host == "TkUbuntu") 
+        || ($domain == "" && $host == "VBox-Ubuntu") ]]; then
     source ${dir}/local_laptop.sh
     sync=yes
 else
