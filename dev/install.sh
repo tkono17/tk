@@ -90,6 +90,8 @@ scripts=(\
     scripts/correct_d3pdreader_header.py
     scripts/ath_cmake.sh
     scripts/atlasAnalysisCmake.sh
+    scripts/memo_ath_git.sh
+    scripts/memo_ath_dev.sh
 
     # GRID utilities
     scripts/panda_submit.sh
