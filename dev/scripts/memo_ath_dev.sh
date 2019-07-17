@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+cat <<EOF
 1. Release setup
 
 asetup AnalysisBase,21.2.75
@@ -16,3 +17,4 @@ cd ../build
 asetup --restore
 source x86_64-*/setup.sh
 
+EOF
