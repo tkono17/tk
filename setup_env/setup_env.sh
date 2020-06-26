@@ -42,6 +42,9 @@ elif [[ $domain == "ocha.ac.jp" || ${host[1,3]} == hpx ]]; then
 elif [[ $domain == "" && $host == "tkohno-VirtualBox" ]]; then
     source ${dir}/local_laptop.sh
     sync=yes
+elif [[ $host == "TkUbuntu" ]]; then
+    source ${dir}/local_ubuntu.sh
+    sync=yes
 else
     echo "Domain $domain not registered, not applying any local setting"
 fi
