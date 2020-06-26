@@ -32,6 +32,9 @@ elif [[ $domain == "cern.ch" ]]; then
 elif [[ $domain == "icepp.jp" ]]; then
     source ${dir}/local_icepp.sh
     sync=yes
+elif [[ $domain == "kek.jp" ]]; then
+    source ${dir}/local_kek.sh
+    sync=yes
 elif [[ ${host[1,6]} == hpxpc5 ]]; then
     source ${dir}/local_ocha2.sh
     sync=yes
@@ -40,6 +43,9 @@ elif [[ $domain == "ocha.ac.jp" || ${host[1,3]} == hpx ]]; then
     sync=yes
 #elif [[ $domain == "" && $host == "TK-Vaio-VirtualBox" ]]; then
 elif [[ $domain == "" && $host == "tkohno-VirtualBox" ]]; then
+elif [[ ($domain == "" && $host == "tkohno-VirtualBox") 
+        || ($domain == "" && $host == "TkUbuntu") 
+        || ($domain == "" && $host == "VBox-Ubuntu") ]]; then
     source ${dir}/local_laptop.sh
     sync=yes
 elif [[ $host == "TkUbuntu" ]]; then

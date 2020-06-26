@@ -2,6 +2,7 @@
 # tk/local_laptop.sh
 #--------------------------------------------------------------------------
 export TK_ROOT=$HOME/work/tk
+export TK_SWDIR=$HOME/sw
 export TK_CRON_CONF=$HOME/work/cron.conf
 
 #export ROOTSYS=/opt/products/root-v5-34-09
@@ -11,4 +12,3 @@ export TK_CRON_CONF=$HOME/work/cron.conf
 
 #export tk_svnroot=svn+ssh://tkohno@lxplus.cern.ch/afs/cern.ch/user/t/tkohno/scratch0/svnroot/repos
 
-alias ise=/opt/products/Xilinx/14.6/ISE_DS/ISE/bin/lin/ise

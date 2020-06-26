@@ -41,4 +41,5 @@ autolist=ambiguous
 prompt="%m:%/> "
 export _JAVA_OPTIONS="-Xms256m -Xmx1024m"
 export EDITOR='emacs -nw'
+unset SSH_ASKPASS
 

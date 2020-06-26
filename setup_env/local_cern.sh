@@ -13,12 +13,12 @@ export TK_CRON_CONF=$HOME/work/cron.conf
 # a=$(cat /etc/motd | grep 'Scientific Linux CERN 6' | wc -l)
 a=$(cat /etc/motd | grep 'SLC' | grep '6\.' | wc -l)
 if [[ $a == 1 ]]; then
-    . /afs/cern.ch/sw/lcg/contrib/gcc/4.7/x86_64-slc6/setup.sh
-    set adir=$(pwd)
-    cd /afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.19/x86_64-slc6-gcc47-opt/root;
-    . ./bin/thisroot.sh
-    cd ${adir}
-    unset adir
+#    . /afs/cern.ch/sw/lcg/contrib/gcc/4.7/x86_64-slc6/setup.sh
+#    set adir=$(pwd)
+#    cd /afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.19/x86_64-slc6-gcc47-opt/root;
+#    . ./bin/thisroot.sh
+#    cd ${adir}
+#    unset adir
 fi
 a=
 
@@ -27,13 +27,14 @@ export TK_CRON_CONF=$HOME/work/cron.conf
 
 export workdir=/afs/cern.ch/work/t/tkohno
 export datadir=/afs/cern.ch/work/t/tkohno/data
-export PATH=$workdir/local/bin:$PATH
-export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
+export TK_SWDIR=${workdir}/sw
+export PATH=${TK_SWDIR}/bin:$PATH
+export LD_LIBRARY_PATH=${TK_SWDIR}/bin:$LD_LIBRARY_PATH
+alias cds="cd $workdir"
 
 export PATH=$workdir/local/bin:$PATH
-export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$workdir/local/lib/python2.6/site-packages:$PYTHONPATH
-
+#export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
+#export PYTHONPATH=$workdir/local/lib/python2.6/site-packages:$PYTHONPATH
 
 ##### ATLAS settings
 export AtlasSetup=/afs/cern.ch/atlas/software/dist/AtlasSetup
