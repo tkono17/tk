@@ -40,6 +40,7 @@ alias cds='cd $workdir'
 
 export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
+
 alias setup_grid='source /afs/icepp.jp/project/gd/LCG-share/current/etc/profile.d/grid-env.sh'
 
 #setupATLAS >& /dev/null
