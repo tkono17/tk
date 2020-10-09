@@ -3,7 +3,7 @@
 cat <<EOF
 1. Release setup
 
-asetup AnalysisBase,21.2.75
+asetup AnalysisBase,21.2.93
 
 21.0: Tier-0 release
 21.1: HLT at Point1

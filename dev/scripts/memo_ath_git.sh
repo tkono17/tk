@@ -13,7 +13,7 @@ Clone my fork repository and set the atlas/athena.git as the upstream repository
 git clone https://:@gitlab.cern.ch:8443/tkohno/athena.git
 cd athena
 git remote add upstream https://:@gitlab.cern.ch:8443/atlas/athena.git
-git remove -v
+git remote -v
 
 2. Work with a branch
 Synchronize with the upstream repository and checkout the branch.
