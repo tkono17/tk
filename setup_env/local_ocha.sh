@@ -37,7 +37,8 @@ alias setup_node='export PATH=/opt/node-v10.16.0-linux-x64/bin:$PATH'
 export PATH=/opt/scala-2.11.6/bin:$PATH
 export CLASSPATH=/opt/scala-2.11.6/lib:$CLASSPATH
 
-alias ssh_hpxr1="ssh -i ~/.ssh/id_rsa_hpxr1 tkohno@hpxsrv1"
+alias ssh_hpxr1="ssh -X -i ~/.ssh/id_rsa_hpxr1 tkohno@hpxsrv1"
+alias ssh_hpxsrv1="ssh -X -i ~/.ssh/id_rsa_hpxr1 tkohno@hpxsrv1"
 #----------------------------------------------------------------------
 # ATLAS setup
 #----------------------------------------------------------------------
