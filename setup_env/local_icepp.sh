@@ -61,4 +61,5 @@ alias athena20.0.0.1='cd ${workdir}/athena/20.0.0.1; asetup AtlasProduction,20.0
 #alias setup_panda='source /afs/cern.ch/atlas/offline/external/GRID/DA/panda-client/latest/etc/panda/panda_setup.sh'
 #alias setup_dq2='source /afs/icepp.jp/atlasjp/offline/external/DQ2Clients/setup.sh'
 
+alias ssh_hpxr1="ssh -i ~/.ssh/id_rsa_hpxr1 tkohno@hpxsrv1"
 

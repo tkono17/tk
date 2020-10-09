@@ -50,3 +50,4 @@ export STAGE_SVCCLASS=default
 export PRINTER=32-SB02-CANON
 export LPDEST=${PRINTER}
 
+alias ssh_hpxr1="ssh -i ~/.ssh/id_rsa_hpxr1 tkohno@hpxsrv1"
