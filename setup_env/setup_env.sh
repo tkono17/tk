@@ -48,6 +48,9 @@ elif [[ ($domain == "" && $host == "tkohno-VirtualBox")
         || ($domain == "" && $host == "VBox-Ubuntu") ]]; then
     source ${dir}/local_laptop.sh
     sync=yes
+elif [[ $host == "TkUbuntu" ]]; then
+    source ${dir}/local_ubuntu.sh
+    sync=yes
 else
     echo "Domain $domain not registered, not applying any local setting"
 fi
