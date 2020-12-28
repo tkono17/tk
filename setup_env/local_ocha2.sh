@@ -44,9 +44,12 @@ alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
 # ROOT
 
 # alias setup_vivado='source /opt/Xilinx/Vivado/2017.3/settings64.sh'
-alias setup_vivado='source /home/opt/Xilinx/Vivado/2018.2/settings64.sh'
-alias setup_sdk='source /home/opt/Xilinx/SDK/2018.2/settings64.sh'
+alias setup_vivado='source /home/opt/Xilinx/Vivado/2019.1/settings64.sh'
+#alias setup_sdk='source /home/opt/Xilinx/SDK/2018.2/settings64.sh'
 alias setup_petalinux='source /home/tkono/work/Xilinx/petalinux/settings.sh'
+alias ssh_hpxr1="ssh -i ~/.ssh/id_rsa_hpxr1 tkohno@hpxsrv1"
+alias ssh_hpxsrv1="ssh -i ~/.ssh/id_rsa_hpxr1 tkohno@hpxsrv1"
 
 export AdminDn=cn=Manager,ou=hpx,dc=phys,dc=ocha,dc=ac,dc=jp
 export BaseDn=ou=hpx,dc=phys,dc=ocha,dc=ac,dc=jp
+

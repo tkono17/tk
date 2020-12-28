@@ -20,8 +20,10 @@ alias ise=/nfs/space1/local/Xilinx/14.5/ISE_DS/ISE/bin/lin64/ise
 
 # export OCHA_SVN=svn+ssh://hpxr1.phys.ocha.ac.jp:/var/lib/svn
 export OCHA_SVN=svn+ssh://hpx.phys.ocha.ac.jp/var/svn/repos
-export LPDEST=hpxprint2
-export PRINTER=${LPDEST}
+if [[ $LPDEST == "" ]]; then
+    export LPDEST=hpxprint2
+    export PRINTER=${LPDEST}
+fi
 
 # TexLive 2019
 export MANPATH=/usr/local/texlive/2019/texmf-dist/doc/man:$MANPATH
@@ -35,6 +37,8 @@ alias setup_node='export PATH=/opt/node-v10.16.0-linux-x64/bin:$PATH'
 export PATH=/opt/scala-2.11.6/bin:$PATH
 export CLASSPATH=/opt/scala-2.11.6/lib:$CLASSPATH
 
+alias ssh_hpxr1="ssh -X -i ~/.ssh/id_rsa_hpxr1 tkohno@hpxsrv1"
+alias ssh_hpxsrv1="ssh -X -i ~/.ssh/id_rsa_hpxr1 tkohno@hpxsrv1"
 #----------------------------------------------------------------------
 # ATLAS setup
 #----------------------------------------------------------------------
@@ -47,5 +51,4 @@ function setup_root5() {
     export ROOTSYS=/nfs/opt/root-v5-34-32
     a=$(pwd); cd $ROOTSYS; source ./bin/thisroot.sh; cd $a
 }
-
 alias setup_root6='source /cvmfs/sft.cern.ch/lcg/app/releases/ROOT/6.16.00/x86_64-centos7-gcc48-opt/bin/thisroot.sh'

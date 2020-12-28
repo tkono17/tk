@@ -40,6 +40,7 @@ alias cds='cd $workdir'
 
 export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
+
 alias setup_grid='source /afs/icepp.jp/project/gd/LCG-share/current/etc/profile.d/grid-env.sh'
 
 #setupATLAS >& /dev/null
@@ -61,4 +62,5 @@ alias athena20.0.0.1='cd ${workdir}/athena/20.0.0.1; asetup AtlasProduction,20.0
 #alias setup_panda='source /afs/cern.ch/atlas/offline/external/GRID/DA/panda-client/latest/etc/panda/panda_setup.sh'
 #alias setup_dq2='source /afs/icepp.jp/atlasjp/offline/external/DQ2Clients/setup.sh'
 
+alias ssh_hpxr1="ssh -X -i ~/.ssh/id_rsa_hpxr1 tkohno@hpxr1.phys.ocha.ac.jp"
 
