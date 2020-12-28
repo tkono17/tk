@@ -20,6 +20,8 @@ function installFile() {
 scripts=(\
     config/make_dir.sh
     scripts/prep_project.sh
+    scripts/prepReactProject.sh
+    scripts/initReactWebpack.sh
     scripts/cmd_package.sh
     python/mk_rootLinkDef.py #kill_root.py
     python/mk_tkwt.py

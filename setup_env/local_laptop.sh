@@ -12,3 +12,4 @@ export TK_CRON_CONF=$HOME/work/cron.conf
 
 #export tk_svnroot=svn+ssh://tkohno@lxplus.cern.ch/afs/cern.ch/user/t/tkohno/scratch0/svnroot/repos
 
+alias setup_root6='source /opt/root_v6.22.02/bin/thisroot.sh'

@@ -15,3 +15,5 @@ source /opt/root_v6.20.04/bin/thisroot.sh
 #alias ise=/opt/products/Xilinx/14.6/ISE_DS/ISE/bin/lin/ise
 
 export PATH=/opt/node-v10.16.0-linux-x64/bin:$PATH
+alias setup_root6='source /opt/root_v6.20.04/bin/thisroot.sh'
+
