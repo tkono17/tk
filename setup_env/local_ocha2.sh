@@ -19,7 +19,9 @@ export PATH=$workdir/local/bin:$PATH
 export LD_LIBRARY_PATH=${workdir}/local/lib:$LD_LIBRARY_PATH
 
 DIRSTACKSIZE=20
-setopt autopushd
+if [[ $SHELL == zsh ]]; then
+    setopt autopushd
+fi
 
 export OCHA_SVN=svn+ssh://hpx.phys.ocha.ac.jp/var/svn/repos
 export LPDEST=hpxprint2
@@ -52,4 +54,5 @@ alias ssh_hpxsrv1="ssh -i ~/.ssh/id_rsa_hpxr1 tkohno@hpxsrv1"
 
 export AdminDn=cn=Manager,ou=hpx,dc=phys,dc=ocha,dc=ac,dc=jp
 export BaseDn=ou=hpx,dc=phys,dc=ocha,dc=ac,dc=jp
+
 

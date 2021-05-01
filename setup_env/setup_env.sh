@@ -7,13 +7,13 @@
 #echo "Setup my environment"
 
 self=$0
-dir=$HOME
+dir=$HOME/work/tk/setup_env
 if [[ ${#self} -gt 0 && ${self[1]} != "/" ]]; then
     dn=$(dirname $self)
     bn=$(basename $self)
     self=$(cd $dn; pwd)/$(basename $self)
 fi
-dir=$(dirname $self)
+#dir=$(dirname $self)
 host=$(hostname -s)
 domain=$(hostname -d) >& /dev/null
 
@@ -35,14 +35,12 @@ elif [[ $domain == "icepp.jp" ]]; then
 elif [[ $domain == "kek.jp" ]]; then
     source ${dir}/local_kek.sh
     sync=yes
-elif [[ ${host[1,6]} == hpxpc5 ]]; then
+elif [[ ${host} == hpxpc5 || ${host} == hpxpc6 ]]; then
     source ${dir}/local_ocha2.sh
     sync=yes
 elif [[ $domain == "ocha.ac.jp" || ${host[1,3]} == hpx ]]; then
     source ${dir}/local_ocha.sh
     sync=yes
-#elif [[ $domain == "" && $host == "TK-Vaio-VirtualBox" ]]; then
-elif [[ $domain == "" && $host == "tkohno-VirtualBox" ]]; then
 elif [[ ($domain == "" && $host == "tkohno-VirtualBox") 
         || ($domain == "" && $host == "TkUbuntu") 
         || ($domain == "" && $host == "VBox-Ubuntu") ]]; then
@@ -59,7 +57,7 @@ source ${dir}/setup_general.sh
 source ${dir}/setup_work.sh
 
 tty >& /dev/null
-if [[ $? == 0 && $sync == "yes" ]]; then
+#if [[ $? == 0 && $sync == "yes" ]]; then
 #    mycron.py start
-fi
+#fi
 
